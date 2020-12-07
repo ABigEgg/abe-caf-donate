@@ -3,6 +3,7 @@
  * Plugin name: A Big Egg - CAF donation plugin
  * Description: This is a simple plugin that makes it easier to generate donation links for CAF
  * Author: A Big Egg
+ * Version: 1.0
  * Author URI: https://abigegg.com
  */
 add_action( 'admin_menu', 'abe_caf_register_options_page' );
