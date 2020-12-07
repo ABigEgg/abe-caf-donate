@@ -1,12 +1,12 @@
 <?php 
 /** 
- * Plugin name: A Big Egg - CAF donation plugin
+ * Plugin name: ABE - CAF Donate
  * Description: This is a simple plugin that makes it easier to generate donation links for CAF
  * Author: A Big Egg
  * Version: 1.0
  * Author URI: https://abigegg.com
  */
-add_action( 'admin_menu', 'abe_caf_register_options_page' );
+add_action( 'admin_menu', 'abecaf_register_options_page' );
 
 
 /**
@@ -17,8 +17,8 @@ add_action( 'admin_menu', 'abe_caf_register_options_page' );
  * @param  mixed $regular Should this be a regular (recurring) donation? 
  * @return string|false
  */
-function abe_caf_get_donation_link( $amount = 0, $regular = false ) {
-    $url = abe_caf_get_donation_url();
+function abecaf_get_donation_link( $amount = 0, $regular = false ) {
+    $url = abecaf_get_donation_url();
 
     if ( ! $url ) {
         return false;
@@ -37,20 +37,20 @@ function abe_caf_get_donation_link( $amount = 0, $regular = false ) {
  *
  * @return void
  */
-function abe_caf_register_options_page() {
-    add_options_page( 'CAF Donations', 'CAF Donations', 'manage_options', 'abe-caf', '_abe_caf_options_page' );
+function abecaf_register_options_page() {
+    add_options_page( 'CAF Donations', 'CAF Donations', 'manage_options', 'abe-caf', 'abecaf_options_page' );
 }
 
-add_action( 'admin_init', 'abe_caf_register_settings' );
+add_action( 'admin_init', 'abecaf_register_settings' );
 
 /**
  * Register the settings for the plugin
  *
  * @return void
  */
-function abe_caf_register_settings() {
-    add_option( 'abe_caf_url', '' );
-    register_setting( 'abe_caf', 'abe_caf_url', [
+function abecaf_register_settings() {
+    add_option( 'abecaf_url', '' );
+    register_setting( 'abecaf', 'abecaf_url', [
         'sanitize_callback' => 'sanitize_url'
     ] );
 }
@@ -60,18 +60,18 @@ function abe_caf_register_settings() {
  *
  * @return void
  */
-function _abe_caf_options_page() {
+function abecaf_options_page() {
 ?>
 <div>
     <?php screen_icon(); ?>
     <h2>A Big Egg - CAF Donations</h2>
     <form method="post" action="options.php">
-    <?php settings_fields( 'abe_caf' ); ?>
+    <?php settings_fields( 'abecaf' ); ?>
     <p>Enter the URL of your CAF donation page, it should look something like this: https://cafdonate.cafonline.org/10805</p>
     <table>
     <tr valign="top">
-    <th scope="row"><label for="abe_caf_url">CAF donation page URL</label></th>
-    <td><input type="text" id="abe_caf_url" name="abe_caf_url" value="<?php echo get_option('abe_caf_url'); ?>" /></td>
+    <th scope="row"><label for="abecaf_url">CAF donation page URL</label></th>
+    <td><input type="text" id="abecaf_url" name="abecaf_url" value="<?php echo get_option('abecaf_url'); ?>" /></td>
     </tr>
     </table>
     <?php submit_button(); ?>
@@ -85,6 +85,6 @@ function _abe_caf_options_page() {
  *
  * @return string
  */
-function abe_caf_get_donation_url() {
-    return untrailingslashit( get_option( 'abe_caf_url' ) );
+function abecaf_get_donation_url() {
+    return untrailingslashit( get_option( 'abecaf_url' ) );
 }

@@ -1,8 +1,8 @@
-=== A Big Egg - CAF donate ===
+=== CAF Donate ===
 Contributors: Abigegg
 Tags: donations, charity, caf
 Requires at least: 4.7
-Tested up to: 5.4
+Tested up to: 5.5
 Stable tag: 4.3
 Requires PHP: 7.0
 License: MIT
@@ -23,13 +23,13 @@ For example, you might have a donate button on your site that lets users select 
 Once you've set up the plugin and entered your charity's CAF url, you can call the `abe_caf_get_donation_link` function like so:
 
 `
-abe_caf_get_donation_link( $amount, $regular );
+abecaf_get_donation_link( $amount, $regular );
 `
 
 
 Generate the URL to make a one-off £10 donation:
 `
-abe_caf_get_donation_link( 10, false );
+abecaf_get_donation_link( 10, false );
 
 // "https://cafdonate.cafonline.org/10742?caf_donationamount=10&caf_paymenttype=single"
 `
@@ -37,7 +37,7 @@ abe_caf_get_donation_link( 10, false );
 
 Generate the URL to make a recurring £25 donation:
 `
-abe_caf_get_donation_link( 25, true );
+abecaf_get_donation_link( 25, true );
 
 // "https://cafdonate.cafonline.org/10742?caf_donationamount=25&caf_paymenttype=regular"
 `
