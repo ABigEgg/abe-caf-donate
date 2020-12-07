@@ -1,4 +1,4 @@
-=== CAF Donate ===
+=== ABE - CAF Donate ===
 Contributors: Abigegg
 Tags: donations, charity, caf
 Requires at least: 4.7
