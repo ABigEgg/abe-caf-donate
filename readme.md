@@ -1,5 +1,12 @@
-A Big Egg - CAF donate
-===
+=== A Big Egg - CAF donate ===
+Contributors: Abigegg
+Tags: donations, charity, caf
+Requires at least: 4.7
+Tested up to: 5.4
+Stable tag: 4.3
+Requires PHP: 7.0
+License: MIT
+License URI: https://opensource.org/licenses/MIT
 
 This is a really simple plugin which makes it easy to generate URLs for the CAF donation system. 
 
